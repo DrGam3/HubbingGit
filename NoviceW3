@@ -1,0 +1,149 @@
+import math
+Number_a = int(input("Give me a number to find out if it is even: "))/2
+List_a = list(str(Number_a))
+index_a = -1
+result_a = 0
+
+
+def things_a():
+    for thing in List_a:
+        global index_a
+        index_a += 1
+        if thing is ".":
+            base = int(List_a[index_a + 1])
+            if base == 5:
+                global result_a
+                result_a = False
+            else:
+                break
+    if result_a is not False:
+        print("Your even number results came back as True")
+    else:
+        print("Your even number results came back as False")
+
+
+things_a()
+
+Number_b = int(input("Give me another number to find out if it is a prime: "))
+index_b = -1
+another_number = 2
+number_range = math.sqrt(Number_b)
+number_range = int(number_range) + 1
+a_prime_number = Number_b % another_number is not 0
+
+
+def things_b(number):
+    global a_prime_number
+    global another_number
+    if number == 1:
+        a_prime_number = False
+    elif a_prime_number is True:
+        while a_prime_number is True:
+            if another_number <= number_range:
+                a_prime_number = Number_b % another_number is not 0
+            else:
+                break
+            another_number += 1
+    else:
+        if number == 2:
+            a_prime_number = True
+        else:
+            print("Silly, that's an even number :D quickest check ever!")
+    if a_prime_number is True:
+        print("Your prime number results came back as True")
+    else:
+        print("Your prime number results came back as False")
+
+
+things_b(Number_b)
+
+
+def things_b(number):
+    global a_prime_number
+    global another_number
+    global number_range
+    another_number = 2
+    number_range = math.sqrt(number)
+    number_range = int(number_range) + 1
+    a_prime_number = number % another_number is not 0
+    if a_prime_number is True:
+        while a_prime_number is True:
+            if another_number <= number_range:
+                a_prime_number = number % another_number is not 0
+            else:
+                break
+            another_number += 1
+    else:
+        if number == 2:
+            a_prime_number = True
+
+
+things_b(Number_b)
+
+
+Number_c = int(input("Give me another number to find out if it is a triangular: "))
+n = 1
+a_triangular_number = n * (n + 1) / 2
+List_c = list(str(Number_c))
+index_c = -1
+result_c = True
+
+
+def things_ca(number):
+    number = list(str(number))
+    for thing in number:
+        global index_c
+        index_c += 1
+        if thing is ".":
+            base = int(number[index_c + 1])
+            if base == 0:
+                global result_c
+                result_c = False
+            else:
+                break
+
+
+def things_cb(number):
+    global n
+    global a_triangular_number
+    n = int(math.sqrt(number))
+    a_triangular_number = n * (n + 1) / 2
+    while n <= number:
+        a_triangular_number = n * (n + 1) / 2
+        if int(a_triangular_number) == number:
+            print("Your triangular number results came back as True")
+            break
+        elif n >= number:
+            print("Your triangular number results came back as False")
+            break
+        else:
+            n += 1
+
+
+things_cb(Number_c)
+
+
+Number_d = int(input("Give me another number to find out if it is a perfect number: "))
+p = 2
+a_perfect_number = 2 ** (p - 1) * (2 ** p - 1)
+
+
+def things_d():
+    global p
+    global a_perfect_number
+    while Number_d > a_perfect_number:
+        things_b(p)
+        if a_prime_number is True:
+            things_b(2 ^ p - 1)
+            a_perfect_number = 2 ** (p - 1) * (2 ** p - 1)
+            if Number_d == a_perfect_number:
+                break
+        p += 1
+
+    if Number_d == a_perfect_number:
+        print("Your perfect number results came back as True")
+    else:
+        print("Your perfect number results came back as False")
+
+
+things_d()
